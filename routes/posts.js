@@ -16,12 +16,11 @@ const getPost = async () => {
 // Define a route
 router.get("/", (req, res) => {
   //   res.json({ data: getPost() });
-
   //   res.json({ data: getPost() });
   //   res.json({ username: "Flavio" });
   //   res.end(JSON.stringify(getPost()));
   //   res.json(getPost());
-  res.send(`<h3>This is a Posts route! ${getPost()}</h3>`);
+  //   res.send(`<h3>This is a Posts route! ${getPost()}</h3>`);
 });
 
 router.get("/101", (req, res) => {

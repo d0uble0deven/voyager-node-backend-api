@@ -26,6 +26,10 @@ https://medium.com/@ibrahimhz/creating-your-first-backend-with-node-js-step-by-s
 
 const express = require("express");
 const app = express();
+const bodyParser = require("body-parser");
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.send("<h1>Hello, Express.js Server!</h1>");
@@ -34,12 +38,16 @@ app.get("/", (req, res) => {
 // Include route files
 const userRoute = require("./routes/users");
 const postsRoute = require("./routes/posts");
+const flightsRoute = require("./routes/flights");
+const locationsRoute = require("./routes/locations");
 
 // User routes
 app.use("/users", userRoute);
 app.use("/posts", postsRoute);
+app.use("/flights", flightsRoute);
+app.use("/locations", locationsRoute);
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3002;
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
